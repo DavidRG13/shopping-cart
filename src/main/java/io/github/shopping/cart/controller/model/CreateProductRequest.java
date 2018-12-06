@@ -18,9 +18,15 @@ import javax.validation.constraints.Size;
 @EqualsAndHashCode
 public class CreateProductRequest {
 
+    /*
+     * Name of the product.
+     */
     @Size(min = 5, max = 40)
     private String name;
 
+    /*
+     * Price per unit of the product.
+     */
     @PositiveOrZero
     private double price;
 }

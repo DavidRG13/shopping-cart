@@ -1,19 +1,17 @@
 package io.github.shopping.cart.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.shopping.cart.controller.model.CreatePlacedOrderRequest;
 import io.github.shopping.cart.controller.model.OrderLineRequest;
 import io.github.shopping.cart.controller.model.OrderLineResponse;
 import io.github.shopping.cart.controller.model.PlacedOrderResponse;
 import io.github.shopping.cart.services.PlacedOrderService;
+import io.github.shopping.internal.BaseControllerTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -26,16 +24,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(PlaceOrderController.class)
-public class PlaceOrderControllerTest {
-
-    @Autowired
-    private MockMvc mockMvc;
+@SpringBootTest
+public class PlaceOrderControllerTest extends BaseControllerTest {
 
     @MockBean
     private PlacedOrderService placedOrderService;
-
-    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     public void shouldReturnTheNewlyPlacedOrder() throws Exception {

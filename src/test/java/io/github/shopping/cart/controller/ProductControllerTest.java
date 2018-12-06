@@ -1,18 +1,16 @@
 package io.github.shopping.cart.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.shopping.cart.controller.model.CreateProductRequest;
 import io.github.shopping.cart.controller.model.ProductResponse;
 import io.github.shopping.cart.controller.model.UpdateProductRequest;
 import io.github.shopping.cart.services.ProductService;
+import io.github.shopping.internal.BaseControllerTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Optional;
 
@@ -24,16 +22,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(ProductController.class)
-public class ProductControllerTest {
-
-    @Autowired
-    private MockMvc mockMvc;
+@SpringBootTest
+public class ProductControllerTest extends BaseControllerTest {
 
     @MockBean
     private ProductService productService;
-
-    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     public void shouldReturnTheNewlyCreatedProduct() throws Exception {

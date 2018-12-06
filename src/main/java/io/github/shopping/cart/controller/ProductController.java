@@ -28,6 +28,11 @@ public class ProductController {
         this.productService = productService;
     }
 
+    /**
+     * Returns the desired product by providing its id.
+     *
+     * @param productId the id of the product to be returned.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProduct(@PathVariable("id") final String productId) {
         return productService.getProductById(productId)
@@ -35,6 +40,9 @@ public class ProductController {
             .orElse(ResponseEntity.badRequest().build());
     }
 
+    /**
+     * Creates a new product if the data provided is valid.
+     */
     @PostMapping
     public ResponseEntity<ProductResponse> createProduct(@RequestBody @Valid final CreateProductRequest createProductRequest) {
         return productService.createProduct(createProductRequest)
@@ -42,6 +50,11 @@ public class ProductController {
             .orElse(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build());
     }
 
+    /**
+     * Updates an existing product if the data provided is valid.
+     *
+     * @param productId the id of the product to be updated.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponse> updateProduct(@PathVariable("id") final String productId,
                                                          @RequestBody @Valid final UpdateProductRequest updateProductRequest) {
