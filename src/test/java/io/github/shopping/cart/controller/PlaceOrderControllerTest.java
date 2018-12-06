@@ -66,8 +66,6 @@ public class PlaceOrderControllerTest {
             .andExpect(status().isBadRequest());
     }
 
-    // TODO: update inexistent
-
     @Test
     public void shouldReturnAnExistingPlacedOrder() throws Exception {
         final PlacedOrderResponse expectedResponse = new PlacedOrderResponse("dede@dede.com", LocalDate.now(), asList(new OrderLineResponse("456", 2, 3.99)), 7.98);
