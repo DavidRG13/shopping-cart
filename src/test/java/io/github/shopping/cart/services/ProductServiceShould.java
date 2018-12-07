@@ -3,7 +3,6 @@ package io.github.shopping.cart.services;
 import io.github.shopping.cart.controller.model.CreateProductRequest;
 import io.github.shopping.cart.controller.model.ProductResponse;
 import io.github.shopping.cart.controller.model.UpdateProductRequest;
-import io.github.shopping.cart.repository.InMemoryProductRepo;
 import io.github.shopping.cart.repository.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

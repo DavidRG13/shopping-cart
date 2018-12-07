@@ -4,6 +4,8 @@ import io.github.shopping.cart.controller.model.CreatePlacedOrderRequest;
 import io.github.shopping.cart.controller.model.OrderLineRequest;
 import io.github.shopping.cart.controller.model.OrderLineResponse;
 import io.github.shopping.cart.controller.model.PlacedOrderResponse;
+import io.github.shopping.cart.repository.model.OrderLine;
+import io.github.shopping.cart.repository.model.PlacedOrder;
 import io.github.shopping.cart.services.PlacedOrderService;
 import io.github.shopping.internal.BaseControllerTest;
 import org.junit.Test;
@@ -14,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import static java.util.Arrays.asList;
@@ -82,5 +85,23 @@ public class PlaceOrderControllerTest extends BaseControllerTest {
             get("/placed-orders/{id}", 123)
                 .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void shouldReturnPlacedOrdersInPeriod() throws Exception {
+        final PlacedOrderResponse savedOrderInOctober = new PlacedOrderResponse("dede@dede.com", LocalDate.parse("2018-10-02"), asList(new OrderLineResponse("456", 2, 3.99)), 7.98);
+        final PlacedOrderResponse savedOrderInOctober2 = new PlacedOrderResponse("dede@dede.com", LocalDate.parse("2018-10-02"), asList(new OrderLineResponse("789", 2, 3.99)), 7.98);
+
+        final List<PlacedOrderResponse> expectedPlacedOrders = asList(savedOrderInOctober, savedOrderInOctober2);
+        given(this.placedOrderService.getInPeriod(LocalDate.parse("2018-10-01"), LocalDate.parse("2018-10-03")))
+            .willReturn(expectedPlacedOrders);
+
+        this.mockMvc.perform(
+            get("/placed-orders")
+                .param("from", "2018-10-01")
+                .param("to", "2018-10-03")
+                .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+        .andExpect(content().json(objectMapper.writeValueAsString(expectedPlacedOrders)));
     }
 }

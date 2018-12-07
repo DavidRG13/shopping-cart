@@ -32,7 +32,7 @@ public class ProductService {
     }
 
     public Optional<ProductResponse> updateProduct(final String productId, final UpdateProductRequest updateProductRequest) {
-        if (!productId.equals(updateProductRequest.getId())) {
+        if (!productId.equals(updateProductRequest.getId()) || !productRepository.existsById(productId)) {
             return Optional.empty();
         }
         final Product productToBeUpdated = new Product(updateProductRequest.getId(), updateProductRequest.getName(), updateProductRequest.getPrice());

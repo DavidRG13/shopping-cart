@@ -9,6 +9,7 @@ import io.github.shopping.cart.repository.model.PlacedOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -46,5 +47,11 @@ public class PlacedOrderService {
     public Optional<PlacedOrderResponse> getById(final String placedOrderId) {
         return placedOrderRepository.findById(placedOrderId)
             .map(PlacedOrderResponse::from);
+    }
+
+    public List<PlacedOrderResponse> getInPeriod(final LocalDate from, final LocalDate to) {
+        return placedOrderRepository.findByPlacedOnBetween(from, to).stream()
+            .map(PlacedOrderResponse::from)
+            .collect(Collectors.toList());
     }
 }
