@@ -3,8 +3,9 @@
 This project shows how to create a simple shopping cart API using Spring features such as:
 * Controllers
 * Input validation
-* Repository
+* Repository, currently using [H2](http://www.h2database.com/html/main.html) for simplicity
 * Unit testing Controllers
+* Unit testing Repositories
 * Documentation auto generated
 
 ## How to run it

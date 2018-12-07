@@ -36,7 +36,7 @@ public class ProductService {
             return Optional.empty();
         }
         final Product productToBeUpdated = new Product(updateProductRequest.getId(), updateProductRequest.getName(), updateProductRequest.getPrice());
-        return productRepository.update(productToBeUpdated)
+        return Optional.of(productRepository.save(productToBeUpdated))
             .map(it -> new ProductResponse(it.getId(), it.getName(), it.getPrice()));
     }
 }
