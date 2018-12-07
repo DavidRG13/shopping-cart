@@ -1,0 +1,27 @@
+= Shopping Cart
+
+Simple shopping cart functionality where products can be created, retrieved and updated, and the orders can be placed and retrieved.
+
+== API
+
+include::{snippets}/product-controller-test/should-return-the-newly-created-product/auto-section.adoc[]
+
+include::{snippets}/product-controller-test/should-fail-when-submitting-invalid-values/auto-section.adoc[]
+
+include::{snippets}/product-controller-test/should-return-an-existing-product/auto-section.adoc[]
+
+include::{snippets}/product-controller-test/should-fail-when-asking-for-a-product-id-that-doesnt-exist/auto-section.adoc[]
+
+include::{snippets}/product-controller-test/should-update-an-existing-product/auto-section.adoc[]
+
+include::{snippets}/product-controller-test/should-fail-when-updating-a-product-id-that-doesnt-exist/auto-section.adoc[]
+
+include::{snippets}/product-controller-test/should-fail-when-updating-a-product-with-invalid-data/auto-section.adoc[]
+
+include::{snippets}/place-order-controller-test/should-return-the-newly-placed-order/auto-section.adoc[]
+
+include::{snippets}/place-order-controller-test/should-fail-when-submitting-invalid-values/auto-section.adoc[]
+
+include::{snippets}/place-order-controller-test/should-return-an-existing-placed-order/auto-section.adoc[]
+
+include::{snippets}/place-order-controller-test/should-return-not-found-for-an-unknown-placed-order/auto-section.adoc[]
