@@ -24,7 +24,7 @@ As we are using the [Grandle Wrapper](https://docs.gradle.org/current/userguide/
 To generate the documentation we are using [Spring Rest Docs](https://docs.spring.io/spring-restdocs/docs/2.0.2.RELEASE/reference/html5/) and [Spring Auto Rest Docs](https://scacap.github.io/spring-auto-restdocs/).
 This allows us to generate the documentation based on tests and javaDoc comments.
 
-As this project is currently not publishing the resulting HTML pages to GitHub pages, we have created a Gradle task that generates the documentation and copy it to `docs` folder, so it can be added to the repository easily.
+As this project is currently not publishing the resulting HTML pages to GitHub pages, we have created a Gradle task that generates the documentation and copy it to `docs` folder, so it can be added to the repository or viewed in a browser easily.
 Simply run:
 ```$bash
 ./gradlew copyDocs
