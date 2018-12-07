@@ -18,6 +18,8 @@ include::{snippets}/product-controller-test/should-fail-when-updating-a-product-
 
 include::{snippets}/product-controller-test/should-fail-when-updating-a-product-with-invalid-data/auto-section.adoc[]
 
+include::{snippets}/product-controller-test/should-delete-an-existing-product/auto-section.adoc[]
+
 include::{snippets}/place-order-controller-test/should-return-the-newly-placed-order/auto-section.adoc[]
 
 include::{snippets}/place-order-controller-test/should-fail-when-submitting-invalid-values/auto-section.adoc[]

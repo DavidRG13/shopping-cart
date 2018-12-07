@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Optional;
 
 import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -122,5 +123,13 @@ public class ProductControllerTest extends BaseControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(updateProductRequest)))
             .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void shouldDeleteAnExistingProduct() throws Exception {
+        this.mockMvc.perform(
+            delete("/products/{id}", 123)
+                .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk());
     }
 }

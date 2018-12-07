@@ -39,4 +39,8 @@ public class ProductService {
         return Optional.of(productRepository.save(productToBeUpdated))
             .map(it -> new ProductResponse(it.getId(), it.getName(), it.getPrice()));
     }
+
+    public void deleteProductById(final String productId) {
+        productRepository.deleteById(productId);
+    }
 }

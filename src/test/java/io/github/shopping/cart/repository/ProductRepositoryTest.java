@@ -30,4 +30,15 @@ public class ProductRepositoryTest {
         assertTrue(actualOrder.isPresent());
         assertEquals(savedProduct, actualOrder.get());
     }
+
+    @Test
+    public void shouldDeleteAProduct() {
+        final Product savedProduct = new Product("123", "laptop", 199.99);
+        productRepository.save(savedProduct);
+
+        productRepository.deleteById("123");
+
+        final Optional<Product> actualOrder = productRepository.findById("123");
+        assertFalse(actualOrder.isPresent());
+    }
 }

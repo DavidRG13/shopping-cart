@@ -1319,24 +1319,15 @@ Content-Length: 59
 </div>
 </div>
 <div class="sect2">
-<h3 id="resources-place-order-controller-test-should-return-the-newly-placed-order">Place Order</h3>
+<h3 id="resources-product-controller-test-should-delete-an-existing-product">Update Product</h3>
 <div class="paragraph">
-<p><code>POST /placed-orders</code></p>
+<p><code>DELETE /products/{id}</code></p>
+</div>
+<div class="paragraph">
+<p>Updates an existing product if the data provided is valid.</p>
 </div>
 <div class="sect3">
 <h4 id="_path_parameters_8">Path parameters</h4>
-<div class="paragraph">
-<p>No parameters.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_query_parameters_8">Query parameters</h4>
-<div class="paragraph">
-<p>No parameters.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_request_fields_8">Request fields</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1346,7 +1337,7 @@ Content-Length: 59
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Parameter</th>
 <th class="tableblock halign-left valign-top">Type</th>
 <th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
@@ -1354,109 +1345,25 @@ Content-Length: 59
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">buyerEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must be a well-formed email address.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must be in the future or the present.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.year</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.month</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.chronology</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.chronology.id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.chronology.calendarType</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.era</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.era.value</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.monthValue</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.dayOfMonth</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.dayOfYear</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.dayOfWeek</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.leapYear</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lines</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array[Object]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].productId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].quantity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The id of the product to be updated.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="_query_parameters_8">Query parameters</h4>
+<div class="paragraph">
+<p>No parameters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_fields_8">Request fields</h4>
+<div class="paragraph">
+<p>No request body.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_response_fields_8">Response fields</h4>
@@ -1477,49 +1384,19 @@ Content-Length: 59
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">buyerEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lines</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array[Object]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].productId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].quantity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].pricePerUnit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].total</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">price</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1531,10 +1408,8 @@ Content-Length: 59
 <h4 id="_example_request_8">Example request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/placed-orders' -i -X POST \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -d '{"buyerEmail":"dede@dede.com","placedOn":[2018,12,7],"lines":[{"productId":"123","quantity":2}]}'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/products/123' -i -X DELETE \
+    -H 'Accept: application/json'</code></pre>
 </div>
 </div>
 </div>
@@ -1542,27 +1417,13 @@ Content-Length: 59
 <h4 id="_example_response_8">Example response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Length: 197
-Content-Type: application/json;charset=UTF-8
-
-{
-  "buyerEmail" : "dede@dede.com",
-  "placedOn" : "2018-12-07",
-  "lines" : [ {
-    "productId" : "456",
-    "quantity" : 2,
-    "pricePerUnit" : 3.99,
-    "total" : 7.98
-  } ],
-  "total" : 7.98
-}</code></pre>
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="resources-place-order-controller-test-should-fail-when-submitting-invalid-values">Place Order</h3>
+<h3 id="resources-place-order-controller-test-should-return-the-newly-placed-order">Place Order</h3>
 <div class="paragraph">
 <p><code>POST /placed-orders</code></p>
 </div>
@@ -1777,7 +1638,7 @@ Content-Type: application/json;charset=UTF-8
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/placed-orders' -i -X POST \
     -H 'Accept: application/json' \
     -H 'Content-Type: application/json' \
-    -d '{"buyerEmail":"dede","placedOn":[2018,12,7],"lines":[{"productId":"123","quantity":2}]}'</code></pre>
+    -d '{"buyerEmail":"dede@dede.com","placedOn":[2018,12,7],"lines":[{"productId":"123","quantity":2}]}'</code></pre>
 </div>
 </div>
 </div>
@@ -1785,42 +1646,35 @@ Content-Type: application/json;charset=UTF-8
 <h4 id="_example_response_9">Example response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request</code></pre>
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Length: 197
+Content-Type: application/json;charset=UTF-8
+
+{
+  "buyerEmail" : "dede@dede.com",
+  "placedOn" : "2018-12-07",
+  "lines" : [ {
+    "productId" : "456",
+    "quantity" : 2,
+    "pricePerUnit" : 3.99,
+    "total" : 7.98
+  } ],
+  "total" : 7.98
+}</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="resources-place-order-controller-test-should-return-an-existing-placed-order">Get Placed Order</h3>
+<h3 id="resources-place-order-controller-test-should-fail-when-submitting-invalid-values">Place Order</h3>
 <div class="paragraph">
-<p><code>GET /placed-orders/{id}</code></p>
+<p><code>POST /placed-orders</code></p>
 </div>
 <div class="sect3">
 <h4 id="_path_parameters_10">Path parameters</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Optional</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>No parameters.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_query_parameters_10">Query parameters</h4>
@@ -1830,9 +1684,126 @@ Content-Type: application/json;charset=UTF-8
 </div>
 <div class="sect3">
 <h4 id="_request_fields_10">Request fields</h4>
-<div class="paragraph">
-<p>No request body.</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">buyerEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be a well-formed email address.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be in the future or the present.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.year</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.chronology</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.chronology.id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.chronology.calendarType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.era</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.era.value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.monthValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.dayOfMonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.dayOfYear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.dayOfWeek</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn.leapYear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lines</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array[Object]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].productId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].quantity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_response_fields_10">Response fields</h4>
@@ -1907,8 +1878,10 @@ Content-Type: application/json;charset=UTF-8
 <h4 id="_example_request_10">Example request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/placed-orders/123' -i -X GET \
-    -H 'Accept: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/placed-orders' -i -X POST \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{"buyerEmail":"dede","placedOn":[2018,12,7],"lines":[{"productId":"123","quantity":2}]}'</code></pre>
 </div>
 </div>
 </div>
@@ -1916,27 +1889,13 @@ Content-Type: application/json;charset=UTF-8
 <h4 id="_example_response_10">Example response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Length: 197
-Content-Type: application/json;charset=UTF-8
-
-{
-  "buyerEmail" : "dede@dede.com",
-  "placedOn" : "2018-12-07",
-  "lines" : [ {
-    "productId" : "456",
-    "quantity" : 2,
-    "pricePerUnit" : 3.99,
-    "total" : 7.98
-  } ],
-  "total" : 7.98
-}</code></pre>
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="resources-place-order-controller-test-should-return-not-found-for-an-unknown-placed-order">Get Placed Order</h3>
+<h3 id="resources-place-order-controller-test-should-return-an-existing-placed-order">Get Placed Order</h3>
 <div class="paragraph">
 <p><code>GET /placed-orders/{id}</code></p>
 </div>
@@ -2061,6 +2020,151 @@ Content-Type: application/json;charset=UTF-8
 <h4 id="_example_response_11">Example response</h4>
 <div class="listingblock">
 <div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Length: 197
+Content-Type: application/json;charset=UTF-8
+
+{
+  "buyerEmail" : "dede@dede.com",
+  "placedOn" : "2018-12-07",
+  "lines" : [ {
+    "productId" : "456",
+    "quantity" : 2,
+    "pricePerUnit" : 3.99,
+    "total" : 7.98
+  } ],
+  "total" : 7.98
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="resources-place-order-controller-test-should-return-not-found-for-an-unknown-placed-order">Get Placed Order</h3>
+<div class="paragraph">
+<p><code>GET /placed-orders/{id}</code></p>
+</div>
+<div class="sect3">
+<h4 id="_path_parameters_12">Path parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_query_parameters_12">Query parameters</h4>
+<div class="paragraph">
+<p>No parameters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_fields_12">Request fields</h4>
+<div class="paragraph">
+<p>No request body.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_fields_12">Response fields</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">buyerEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placedOn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lines</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array[Object]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].productId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].quantity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].pricePerUnit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lines[].total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_request_12">Example request</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/placed-orders/123' -i -X GET \
+    -H 'Accept: application/json'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_response_12">Example response</h4>
+<div class="listingblock">
+<div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 404 Not Found</code></pre>
 </div>
 </div>
@@ -2071,7 +2175,7 @@ Content-Type: application/json;charset=UTF-8
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-07 08:09:35 +0100
+Last updated 2018-12-07 11:32:31 +0100
 </div>
 </div>
 </body>

@@ -7,6 +7,7 @@ import io.github.shopping.cart.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,5 +62,16 @@ public class ProductController {
         return productService.updateProduct(productId, updateProductRequest)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
+    }
+
+    /**
+     * Deletes an existing product.
+     *
+     * @param productId the id of the product to be deleted.
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ProductResponse> updateProduct(@PathVariable("id") final String productId) {
+        productService.deleteProductById(productId);
+        return ResponseEntity.ok().build();
     }
 }
